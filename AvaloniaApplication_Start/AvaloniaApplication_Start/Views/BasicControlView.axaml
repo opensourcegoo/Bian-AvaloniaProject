@@ -7,10 +7,19 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 x:DataType="vm:BasicControlViewModel"
              x:Class="AvaloniaApplication_Start.Views.BasicControlView">
-	<UserControl.DataContext>
+	<!--<UserControl.DataContext>
 		<vm:BasicControlViewModel />
-	</UserControl.DataContext>
-	<DockPanel Background="Red" HorizontalAlignment="Left" LastChildFill="True">
+	</UserControl.DataContext>-->
+	<UserControl.DataTemplates>
+		<DataTemplate DataType="{x:Type vm:HomeViewModel}">
+			<local:HomeView />
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type vm:AboutViewModel}">
+			<local:AboutView />
+		</DataTemplate>
+	</UserControl.DataTemplates>
+	
+	<DockPanel Background="Red" HorizontalAlignment="Stretch"  LastChildFill="True">
 		<Border DockPanel.Dock="Left"
 			  Width="200"
 			  Background="#23272A">
@@ -53,59 +62,12 @@
 						<TextBlock Text="首页" Foreground="White" FontSize="16" Margin="10,0,0,0" VerticalAlignment="Center"/>
 					</StackPanel>
 				</ListBoxItem>
-
 			</ListBox>
 		</Border>
-		<ContentControl DockPanel.Dock="Right" Background="#2F3136">
-			<ContentControl.Content>
+		<ContentControl Background="#2F3136" Content="{Binding CurrentViewModel}"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+			<!--<ContentControl.Content>
 				<local:DefaultView />
-			</ContentControl.Content>
+			</ContentControl.Content>-->
 		</ContentControl>
 	</DockPanel>
-	<!--<DockPanel HorizontalAlignment="Left" VerticalAlignment="Center" Background="Red">
-	  <Border DockPanel.Dock="Left"
-			  Width="200"
-			  Background="#23272A">
-		  <ListBox Background="Transparent"
-				   BorderThickness="0"
-				   Margin="0"
-				   Padding="0">
-			  <ListBoxItem>
-				  <StackPanel Orientation="Horizontal" Spacing="10" Margin="10">
-					  <Path Data="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
-							Fill="White" Width="16" Height="16"/>
-					  <TextBlock Text="首页" Foreground="White" FontSize="16"/>
-				  </StackPanel>
-			  </ListBoxItem>
-			  <ListBoxItem>
-				  <StackPanel Orientation="Horizontal" Spacing="10" Margin="10">
-					  <Path Data="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
-							Fill="White" Width="16" Height="16"/>
-					  <TextBlock Text="预约" Foreground="White" FontSize="16"/>
-				  </StackPanel>
-			  </ListBoxItem>
-			  <ListBoxItem>
-				  <StackPanel Orientation="Horizontal" Spacing="10" Margin="10">
-					  <Path Data="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
-							Fill="White" Width="16" Height="16"/>
-					  <TextBlock Text="报告" Foreground="White" FontSize="16"/>
-				  </StackPanel>
-			  </ListBoxItem>
-			  <ListBoxItem>
-				  <StackPanel Orientation="Horizontal" Spacing="10" Margin="10">
-					  <Path Data="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
-							Fill="White" Width="16" Height="16"/>
-					  <TextBlock Text="费用" Foreground="White" FontSize="16"/>
-				  </StackPanel>
-			  </ListBoxItem>
-			  <ListBoxItem>
-				  <StackPanel Orientation="Horizontal" Spacing="10" Margin="10">
-					  <Path Data="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
-							Fill="White" Width="16" Height="16"/>
-					  <TextBlock Text="财务" Foreground="White" FontSize="16"/>
-				  </StackPanel>
-			  </ListBoxItem>
-		  </ListBox>
-	  </Border>
-  </DockPanel>-->
 </UserControl>

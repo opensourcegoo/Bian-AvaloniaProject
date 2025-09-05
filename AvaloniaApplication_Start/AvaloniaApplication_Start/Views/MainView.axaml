@@ -6,11 +6,11 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AvaloniaApplication_Start.Views.MainView"
              x:DataType="vm:MainViewModel">
-	<Design.DataContext>
-		<!-- This only sets the DataContext for the previewer in an IDE,
-         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-		<vm:MainViewModel />
-	</Design.DataContext>
+	<!--<Design.DataContext>
+		--><!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) --><!--
+		--><!--<vm:MainViewModel />--><!--
+	</Design.DataContext>-->
 	<UserControl.Styles>
 		<Style Selector="TextBlock.h1">
 			<Setter Property="FontSize" Value="24" />
@@ -79,11 +79,11 @@
 			
 			<Button Content="Cancel" IsVisible="False" HorizontalAlignment="Center" Foreground="Red" VerticalAlignment="Center" Template="{StaticResource btntemp}">
 			</Button>
+			<ContentControl />
 			<Expander>
 				
 			</Expander>
 		</StackPanel>
-
 
 	</Grid>
 </UserControl>

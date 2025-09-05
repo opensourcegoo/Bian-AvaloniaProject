@@ -4,9 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			
-             x:Class="AvaloniaApplication_Start.Views.DefaultView">
+             x:Class="AvaloniaApplication_Start.Views.DefaultView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-	<Grid Background="Goldenrod" Width="800" Height="800">
-		
+	<Grid Background="Goldenrod" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+		<!--<Rectangle  Fill="Red" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />-->
 	</Grid>
 </UserControl>

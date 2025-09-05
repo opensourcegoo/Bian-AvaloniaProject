@@ -9,5 +9,6 @@ public partial class BasicControlView : UserControl
     public BasicControlView()
     {
         InitializeComponent();
+        
     }
 }
