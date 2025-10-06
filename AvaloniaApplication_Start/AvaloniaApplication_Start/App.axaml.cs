@@ -44,8 +44,9 @@ public partial class App : Application
         {
             var navigationService = Container.Resolve<INavigationService>();
             var mainWindow = Container.Resolve<MainWindow>();
-            mainWindow.DataContext = Container.Resolve<MainViewModel>();
+            mainWindow.DataContext = Container.Resolve<BasicControlViewModel>();
             desktop.MainWindow = mainWindow;
+
             // 设置默认导航
             //navigationService.NavigateTo<HomeViewModel>();
         }

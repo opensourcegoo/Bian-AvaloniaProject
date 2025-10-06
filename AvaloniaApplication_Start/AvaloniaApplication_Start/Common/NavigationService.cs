@@ -23,10 +23,10 @@ namespace AvaloniaApplication_Start.Common
                 if (_currentViewModel != value)
                 {
                     _currentViewModel = value;
-                    //this.RaisePropertyChanged(nameof(CurrentViewModel));
-                    //this.RaisePropertyChanged(nameof(CanGoBack));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CurrentViewModel)));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CanGoBack)));
+                    this.RaisePropertyChanged(nameof(CurrentViewModel));
+                    this.RaisePropertyChanged(nameof(CanGoBack));
+                    //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CurrentViewModel)));
+                    //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CanGoBack)));
                 }
             }
         }

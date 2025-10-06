@@ -9,6 +9,11 @@ public partial class BasicControlView : UserControl
     public BasicControlView()
     {
         InitializeComponent();
-        
+        //this.Loaded
+    }
+
+    private void ListBox_SelectionChanged(object? sender, Avalonia.Controls.SelectionChangedEventArgs e)
+    {
+
     }
 }

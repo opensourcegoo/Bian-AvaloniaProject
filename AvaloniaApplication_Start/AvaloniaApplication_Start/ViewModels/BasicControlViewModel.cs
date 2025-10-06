@@ -1,4 +1,5 @@
-﻿using AvaloniaApplication_Start.Common;
+﻿using Avalonia.Controls;
+using AvaloniaApplication_Start.Common;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,27 @@ namespace AvaloniaApplication_Start.ViewModels
         private readonly INavigationService  _navigationService;
         public string MainName => "这是BasicView";
 
-        
+        public ReactiveCommand<object, Unit> TestLoadCommand { get; }
         public BasicControlViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
-            _navigationService.NavigateTo<BasicControlViewModel>();
+            _navigationService.NavigateTo<AboutViewModel>();
+            TestLoadCommand = ReactiveCommand.Create<object>(_ =>
+            {
+                
+            });
         }
-        public object CurrentViewModel => _navigationService.CurrentViewModel;
+
+        private void TestLoad(SelectionChangedEventArgs args)
+        {
+            throw new NotImplementedException();
+        }
+
+        //private void TestLoad(SelectionChangedEventArgs e)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public object CurrentViewModel2 => _navigationService.CurrentViewModel;
     }
 }
