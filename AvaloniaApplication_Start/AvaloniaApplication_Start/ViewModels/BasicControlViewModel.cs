@@ -12,7 +12,7 @@ namespace AvaloniaApplication_Start.ViewModels
 {
     public class BasicControlViewModel : ViewModelBase
     {
-        private readonly INavigationService  _navigationService;
+        private readonly INavigationService _navigationService;
         public string MainName => "这是BasicView";
 
         public ReactiveCommand<object, Unit> TestLoadCommand { get; }
