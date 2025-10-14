@@ -32,7 +32,6 @@ public partial class App : Application
         Container.Register<HomeViewModel>(Reuse.Transient);
         Container.Register<AboutViewModel>(Reuse.Transient);
 
-
         // 注册Views（可选，如果需要依赖注入到View中）
         Container.Register<MainWindow>(Reuse.Transient);
         Container.Register<BasicControlView>(Reuse.Transient);
@@ -44,20 +43,12 @@ public partial class App : Application
         {
             var navigationService = Container.Resolve<INavigationService>();
             var mainWindow = Container.Resolve<MainWindow>();
-            mainWindow.DataContext = Container.Resolve<BasicControlViewModel>();
+            mainWindow.DataContext = Container.Resolve<MainViewModel>();
             desktop.MainWindow = mainWindow;
 
             // 设置默认导航
             //navigationService.NavigateTo<HomeViewModel>();
         }
-        //else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
-        //{
-        //    singleViewPlatform.MainView = new MainView
-        //    {
-        //        DataContext = new MainViewModel()
-        //    };
-        //}
-
         base.OnFrameworkInitializationCompleted();
     }
 }
