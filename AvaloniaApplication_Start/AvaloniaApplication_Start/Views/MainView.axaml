@@ -1,37 +1,66 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:AvaloniaApplication_Start.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="AvaloniaApplication_Start.Views.MainView"
-             x:DataType="vm:MainViewModel">
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="clr-namespace:AvaloniaApplication_Start.ViewModels"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 x:Class="AvaloniaApplication_Start.Views.MainView"
+			 x:DataType="vm:MainViewModel">
 	<DockPanel>
 		<Border DockPanel.Dock="Left" Width="200" Background="#23272A" HorizontalAlignment="Left">
-			<ItemsControl ItemsSource="{Binding MenuItems}"
-					 Background="Transparent"
-					 Margin="0" Padding="0">
-				<ItemsControl.ItemTemplate>
-					<DataTemplate>
-						<Button Command="{Binding $parent[UserControl].DataContext.TestLoadCommand}"
-								CommandParameter="{Binding}"
-								Background="Transparent"
-								BorderThickness="0"
-								HorizontalAlignment="Stretch"
-								HorizontalContentAlignment="Left"
-								Padding="0">
-							<StackPanel Orientation="Horizontal" Spacing="10" Margin="10">
-								<Path Data="{Binding IconData}"
-									  Fill="White" Width="16" Height="16"
-									  VerticalAlignment="Center"/>
-								<TextBlock Text="{Binding Text}"
-										  Foreground="White" FontSize="16"
-										  VerticalAlignment="Center"/>
-							</StackPanel>
-						</Button>
-					</DataTemplate>
-				</ItemsControl.ItemTemplate>
-			</ItemsControl>
+			<ListBox Background="transparent">
+				<ListBoxItem>
+					<StackPanel Orientation="Horizontal">
+						<Path Data="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" Fill="white" Margin="10" />
+						<TextBlock Text="Home"  Foreground="white" VerticalAlignment="Center" Margin="0,5,0,0"/>
+					</StackPanel>
+				</ListBoxItem>
+				<ListBoxItem>
+					<StackPanel Orientation="Horizontal">
+						<Path Data="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" Fill="white" Margin="10" />
+						<TextBlock Text="About"  Foreground="white" VerticalAlignment="Center" Margin="0,5,0,0"/>
+					</StackPanel>
+				</ListBoxItem>
+				<ListBoxItem>
+					<StackPanel Orientation="Horizontal">
+						<Path Data="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" Fill="white" Margin="10" />
+						<TextBlock Text="Main"  Foreground="white" VerticalAlignment="Center" Margin="0,5,0,0"/>
+					</StackPanel>
+				</ListBoxItem>
+				<ListBox.Styles>
+					<Style Selector="ListBoxItem">
+						<Setter Property="Background" Value="transparent"/>
+						<Setter Property="Foreground" Value="white" />
+					</Style>
+					<Style Selector="ListBoxItem:pointerover /template/ContentPresenter">
+						<Setter Property="Background" Value="blue" />
+					</Style>
+					<Style Selector="ListBoxItem:selected /template/ContentPresenter">
+						<Setter Property="Background" Value="red" />
+					</Style>
+				</ListBox.Styles>
+			</ListBox>
+
+			<!--<ItemsControl.ItemTemplate>
+			<DataTemplate>
+			<Button Command="{Binding $parent[UserControl].DataContext.TestLoadCommand}"
+			CommandParameter="{Binding}"
+			Background="Transparent"
+			BorderThickness="0"
+			HorizontalAlignment="Stretch"
+			HorizontalContentAlignment="Left"
+			Padding="0">
+			<StackPanel Orientation="Horizontal" Spacing="10" Margin="10">
+			<Path Data="{Binding IconData}"
+			Fill="White" Width="16" Height="16"
+			VerticalAlignment="Center"/>
+			<TextBlock Text="{Binding Text}"
+			Foreground="White" FontSize="16"
+			VerticalAlignment="Center"/>
+			</StackPanel>
+			</Button>
+			</DataTemplate>
+			</ItemsControl.ItemTemplate>-->
 		</Border>
 		<ContentControl DockPanel.Dock="Right" Background="#2F3136" />
 		<TextBlock Text="{Binding Greeting}" FontSize="20"  Margin="10" />

@@ -91,8 +91,8 @@
 					</DataTemplate>
 				</ListBox.ItemTemplate>-->
 
-				<ListBoxItem>
-					<StackPanel Orientation="Horizontal" Spacing="10" Margin="10">
+				<ListBoxItem Background="blue">
+					<StackPanel  Orientation="Horizontal" Spacing="10" Margin="10">
 						<Path Data="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
 							  Fill="White" Width="16" Height="16" VerticalAlignment="Center" Margin="0,-10,0,0"/>
 						<TextBlock Text="Home" Foreground="White" FontSize="16" Margin="10,0,0,0" VerticalAlignment="Center"/>
