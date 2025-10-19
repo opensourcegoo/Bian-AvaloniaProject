@@ -2,29 +2,68 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:i="using:Avalonia.Xaml.Interactivity"
+			 xmlns:local="clr-namespace:AvaloniaApplication_Start.Views"
 			 xmlns:vm="clr-namespace:AvaloniaApplication_Start.ViewModels"
+			 xmlns:common="using:AvaloniaApplication_Start.Common"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 xmlns:transitions="clr-namespace:Avalonia.Animation;assembly=Avalonia.Base"
+			 xmlns:trans="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls"
 			 x:Class="AvaloniaApplication_Start.Views.MainView"
 			 x:DataType="vm:MainViewModel">
+	<UserControl.DataTemplates>
+		<common:ViewLocator /> <!--使用ViewLocator定位导航-->
+		<!--<DataTemplate DataType="{x:Type vm:HomeViewModel}">
+		<local:HomeView />
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type vm:AboutViewModel}">
+		<local:AboutView />
+		</DataTemplate>-->
+	</UserControl.DataTemplates>
 	<DockPanel>
+
+		<!--<TransitioningContentControl Name="PageHost" Transitions="" Transition={x:Static transitions:CrossFade.Default}>
+		<TransitioningContentControl.PageTransition>
+		<CrossFade Duration="0:00:00.500" />
+		</TransitioningContentControl.PageTransition>
+
+		--><!-- 初始页面内容 --><!--
+		<TextBlock Text="这是页面 1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" />
+		</TransitioningContentControl>
+		-->
 		<Border DockPanel.Dock="Left" Width="200" Background="#23272A" HorizontalAlignment="Left">
-			<ListBox Background="transparent">
-				<ListBoxItem>
+			<ListBox Name="listbox1" Background="transparent">
+				<i:Interaction.Behaviors>
+					<EventTriggerBehavior EventName="SelectionChanged">
+						<InvokeCommandAction Command="{Binding $parent[UserControl].DataContext.TestLoadCommand }"
+											 CommandParameter="{Binding $parent[ListBox].SelectedItem.Tag}" />
+						<!--PassEventArgsToCommand="True"/>-->
+						<!--CommandParameter="{Binding $parent[ListBox].SelectedItem}" />-->
+						<!--CommandParameter="{Binding #listbox1.SelectedItem}" />-->
+					</EventTriggerBehavior>
+				</i:Interaction.Behaviors>
+				<ListBoxItem Tag="Home">
 					<StackPanel Orientation="Horizontal">
 						<Path Data="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" Fill="white" Margin="10" />
 						<TextBlock Text="Home"  Foreground="white" VerticalAlignment="Center" Margin="0,5,0,0"/>
 					</StackPanel>
 				</ListBoxItem>
-				<ListBoxItem>
+				<ListBoxItem Tag="About">
 					<StackPanel Orientation="Horizontal">
 						<Path Data="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" Fill="white" Margin="10" />
 						<TextBlock Text="About"  Foreground="white" VerticalAlignment="Center" Margin="0,5,0,0"/>
 					</StackPanel>
 				</ListBoxItem>
-				<ListBoxItem>
+				<ListBoxItem Tag="Default">
 					<StackPanel Orientation="Horizontal">
 						<Path Data="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" Fill="white" Margin="10" />
-						<TextBlock Text="Main"  Foreground="white" VerticalAlignment="Center" Margin="0,5,0,0"/>
+						<TextBlock Text="Default"  Foreground="white" VerticalAlignment="Center" Margin="0,5,0,0"/>
+					</StackPanel>
+				</ListBoxItem>
+				<ListBoxItem Tag="Default">
+					<StackPanel Orientation="Horizontal">
+						<Path Data="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" Fill="white" Margin="10" />
+						<TextBlock Text="Default"  Foreground="white" VerticalAlignment="Center" Margin="0,5,0,0"/>
 					</StackPanel>
 				</ListBoxItem>
 				<ListBox.Styles>
@@ -62,7 +101,36 @@
 			</DataTemplate>
 			</ItemsControl.ItemTemplate>-->
 		</Border>
-		<ContentControl DockPanel.Dock="Right" Background="#2F3136" />
-		<TextBlock Text="{Binding Greeting}" FontSize="20"  Margin="10" />
+		<!--<ContentControl DockPanel.Dock="Right" Content="{Binding CurrentViewModel}">
+
+		</ContentControl>-->
+		<!--	<trans:TransitioningContentControl DockPanel.Dock="Right" Content="{Binding CurrentViewModel}" >
+		<trans:TransitioningContentControl.PageTransition>
+		<PageSlide Orientation="Horizontal" Duration="0:00:00.200" />
+
+		</trans:TransitioningContentControl.PageTransition>
+
+		--><!--<TransitioningContentControl.ContentTemplate>
+		<DataTemplate DataType="Bitmap">
+		<Image Source="{Binding}" />
+		</DataTemplate>
+		</TransitioningContentControl.ContentTemplate>--><!--
+		</trans:TransitioningContentControl>-->
+
+		<trans:TransitioningContentControl Content="{Binding CurrentViewModel}">
+			<trans:TransitioningContentControl.PageTransition>
+				<common:MaterialSlideTransition Duration="0:0:0.80" SlideDistance="100" Direction="Left" />
+				<!--<common:SlideAndFadePageTransition Duration="0:0:0.50" />-->
+			<!--	<CompositePageTransition>
+					--><!-- 先执行滑动效果 --><!--
+					<PageSlide Duration="0:0:0.40" Orientation="Horizontal"/>
+					--><!-- 然后执行淡入淡出 --><!--
+					<CrossFade Duration="0:0:0.60"/>
+				</CompositePageTransition>-->
+			</trans:TransitioningContentControl.PageTransition>
+		</trans:TransitioningContentControl>
+
 	</DockPanel>
 </UserControl>
+
+
