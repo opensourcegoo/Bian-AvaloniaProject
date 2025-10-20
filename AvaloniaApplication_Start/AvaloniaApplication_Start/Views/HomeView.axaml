@@ -2,25 +2,38 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:viewmodels="using:AvaloniaApplication_Start.ViewModels"
+			 
+			 
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 x:Class="AvaloniaApplication_Start.Views.HomeView">
-	<Grid Background="DarkSalmon">
+	<UserControl.Styles>
+		<Style Selector="TextBlock.h1">
+			<Setter Property="Foreground" Value="yellow" />
+			<Setter Property="FontSize" Value="30" />
+		</Style>
+	</UserControl.Styles>
+	<UserControl.DataTemplates>
+		<DataTemplate DataType="viewmodels:FooViewModel">
+			<Border Background="red" CornerRadius="8">
+				<TextBlock Text="{Binding FooName}" />
+			</Border>
+		</DataTemplate>
+	</UserControl.DataTemplates>
+	<UserControl.Resources>
+		<!--Resources是如何使用的-->
+	</UserControl.Resources>
+	<Grid Background="DarkSalmon" RowDefinitions="3,2">
 		<StackPanel>
+			<ContentControl Content="{Binding Foo}" />
+			<ItemsControl ItemsSource="{Binding FooCollection}" />
 			<TextBlock Text="{Binding  MainName}" />
-			<!--<Button Content="124321" Command="{Binding SubmitCommand}" />-->
-			<Button Content="this is" Command="{Binding SubmitCommand}" Background="DarkSalmon" />
-			<Button Content="this is" Command="{Binding SubmitCommand}" Background="DarkSalmon" />
-			<Button Content="this is" Command="{Binding SubmitCommand}" Background="DarkSalmon" /><Button Content="this is" Command="{Binding SubmitCommand}" Background="DarkSalmon" />
-			<Button Content="this is" Command="{Binding SubmitCommand}" Background="DarkSalmon" /><Button Content="this is" Command="{Binding SubmitCommand}" Background="DarkSalmon" />
-			<Button Content="this is" Command="{Binding SubmitCommand}" Background="DarkSalmon" /><Button Content="this is" Command="{Binding SubmitCommand}" Background="DarkSalmon" />
-			<Button Content="this is" Command="{Binding SubmitCommand}" Background="DarkSalmon" /><Button Content="this is" Command="{Binding SubmitCommand}" Background="DarkSalmon" />
+			
+			<Button Content="this is" Command="{Binding SubmitCommand}" />
 		</StackPanel>
 		<StackPanel  Height="200" Width="300">
-			
 			<Button Content="this is" Command="{Binding SubmitCommand}" />
-			<Button Content="this is" Command="{Binding SubmitCommand}" />
-			
+			<TextBlock Classes="h1" Text="20" />
 		</StackPanel>
-
 	</Grid>
 </UserControl>

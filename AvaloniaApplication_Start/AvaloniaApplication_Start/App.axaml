@@ -7,4 +7,11 @@
     <Application.Styles>
         <FluentTheme />
     </Application.Styles>
+    <Application.DataTemplates>
+		<DataTemplate>
+			<StackPanel>
+				
+            </StackPanel>
+        </DataTemplate>
+    </Application.DataTemplates>
 </Application>

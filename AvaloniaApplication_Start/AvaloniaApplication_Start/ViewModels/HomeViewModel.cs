@@ -14,10 +14,19 @@ namespace AvaloniaApplication_Start.ViewModels
     {
         public string MainName => "这是HomeView";
 
+        public FooViewModel Foo { get; set; } = new FooViewModel { FooName = "测试名称" };
+        public List<FooViewModel> FooCollection { get; set; }
         public ReactiveCommand<Unit, Unit> SubmitCommand { get; }
         public HomeViewModel(INavigationService navigationService)
         {
             SubmitCommand = ReactiveCommand.Create(Submit);
+            FooCollection = new List<FooViewModel>
+            {
+                new FooViewModel{ FooName = "123"},
+                new FooViewModel{ FooName = "456"},
+                new FooViewModel{ FooName = "789"},
+                new FooViewModel{ FooName = "000"}
+            };
         }
 
         private async void Submit()
@@ -30,4 +39,16 @@ namespace AvaloniaApplication_Start.ViewModels
                 Console.WriteLine("No");
         }
     }
+
+    /// <summary>
+    /// 为Itemscontrol或者是contentcontrol使用还有ContentPresenter
+    /// Itemscontrol
+    /// Contentcontrol
+    /// ContentPresenter
+    /// </summary>
+    public class FooViewModel
+    {
+        public string FooName { get; set; }
+    }
+
 }
