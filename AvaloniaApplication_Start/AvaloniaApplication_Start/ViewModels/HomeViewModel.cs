@@ -15,6 +15,10 @@ namespace AvaloniaApplication_Start.ViewModels
         public string MainName => "这是HomeView";
 
         public FooViewModel Foo { get; set; } = new FooViewModel { FooName = "测试名称" };
+
+        public BarViewModel Bar { get; set; } = new BarViewModel { BarName = "栏目名称" };
+
+
         public List<FooViewModel> FooCollection { get; set; }
         public ReactiveCommand<Unit, Unit> SubmitCommand { get; }
         public HomeViewModel(INavigationService navigationService)
@@ -42,13 +46,17 @@ namespace AvaloniaApplication_Start.ViewModels
 
     /// <summary>
     /// 为Itemscontrol或者是contentcontrol使用还有ContentPresenter
-    /// Itemscontrol
-    /// Contentcontrol
-    /// ContentPresenter
+    /// 1、Itemscontrol
+    /// 2、Contentcontrol
+    /// 3、ContentPresenter
     /// </summary>
     public class FooViewModel
     {
         public string FooName { get; set; }
     }
 
+    public class BarViewModel
+    {
+        public string BarName { get; set; }
+    }
 }

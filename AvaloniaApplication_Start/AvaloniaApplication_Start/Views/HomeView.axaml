@@ -3,8 +3,8 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:viewmodels="using:AvaloniaApplication_Start.ViewModels"
-			 
-			 
+
+
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 x:Class="AvaloniaApplication_Start.Views.HomeView">
 	<UserControl.Styles>
@@ -19,21 +19,51 @@
 				<TextBlock Text="{Binding FooName}" />
 			</Border>
 		</DataTemplate>
+
+		<DataTemplate DataType="viewmodels:BarViewModel">
+			<Border Background="blue" CornerRadius="8">
+				<TextBlock Text="{Binding BarName}"/>
+			</Border>
+		</DataTemplate>
 	</UserControl.DataTemplates>
 	<UserControl.Resources>
 		<!--Resources是如何使用的-->
 	</UserControl.Resources>
-	<Grid Background="DarkSalmon" RowDefinitions="3,2">
-		<StackPanel>
+
+	<Grid Background="DarkSalmon">
+		<Grid.RowDefinitions>
+			<!--RowDefinition默认用的是*而不是auto -->
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<!--两行-->
+		<Grid RowDefinitions="* *">
+
+		</Grid>
+		<StackPanel Grid.Row="0" Grid.Column="0">
+			<TextBlock Text="数据模版的简单使用" />
+			<Label Content="Foo Datatemplate:" FontFamily="Microsoft YaHei" />
 			<ContentControl Content="{Binding Foo}" />
+			<Label Content="Bar Datatemplate：" />
+			<ContentControl Content="{Binding Bar}" />
 			<ItemsControl ItemsSource="{Binding FooCollection}" />
 			<TextBlock Text="{Binding  MainName}" />
-			
-			<Button Content="this is" Command="{Binding SubmitCommand}" />
+			<Button Content="this is a" Command="{Binding SubmitCommand}" />
 		</StackPanel>
-		<StackPanel  Height="200" Width="300">
-			<Button Content="this is" Command="{Binding SubmitCommand}" />
-			<TextBlock Classes="h1" Text="20" />
+
+		<StackPanel Grid.Row="0" Grid.Column="1"  Orientation="Horizontal"  Background="pink" HorizontalAlignment="Stretch">
+			<Button Content="123456" Command="{Binding SubmitCommand}" />
+			<TextBlock Classes="h1" Text="20"/>
+		</StackPanel>
+
+		<StackPanel Grid.Row="0" Grid.Column="2"  Orientation="Horizontal"  Background="green" HorizontalAlignment="Stretch">
+			<TextBlock Text="Avalonia中的数据模版选择器的使用" />
 		</StackPanel>
 	</Grid>
 </UserControl>
