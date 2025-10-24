@@ -1,4 +1,5 @@
 ﻿using AvaloniaApplication_Start.Common;
+using AvaloniaApplication_Start.Model;
 using MsBox.Avalonia;
 using ReactiveUI;
 using System;
@@ -21,8 +22,11 @@ namespace AvaloniaApplication_Start.ViewModels
 
         public List<FooViewModel> FooCollection { get; set; }
         public ReactiveCommand<Unit, Unit> SubmitCommand { get; }
+
+        public Person SinglePerson { get; set; }
         public HomeViewModel(INavigationService navigationService)
         {
+            SinglePerson = new Person { Name = "Mac", Age = 22 };
             SubmitCommand = ReactiveCommand.Create(Submit);
             FooCollection = new List<FooViewModel>
             {
@@ -32,6 +36,8 @@ namespace AvaloniaApplication_Start.ViewModels
                 new FooViewModel{ FooName = "000"}
             };
         }
+
+
 
         private async void Submit()
         {

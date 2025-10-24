@@ -1,6 +1,8 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Controls.Templates;
+using Avalonia.Layout;
 using Avalonia.Markup.Xaml.Templates;
+using AvaloniaApplication_Start.Model;
 using DryIoc;
 using System;
 using System.Collections.Generic;
@@ -12,16 +14,16 @@ namespace AvaloniaApplication_Start.DataTemplates
 {
     public class ShapesTemplateSelector : IDataTemplate
     {
-        
-        //TreeDataTemplate
         public Control? Build(object? param)
         {
-            throw new NotImplementedException();
+          return null;
         }
+
 
         public bool Match(object? data)
         {
-            throw new NotImplementedException();
+            return false;
         }
+           
     }
 }

@@ -3,8 +3,8 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:viewmodels="using:AvaloniaApplication_Start.ViewModels"
-
-
+			 xmlns:model="using:AvaloniaApplication_Start.Model"
+			 xmlns:dts="using:AvaloniaApplication_Start.DataTemplates"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 x:Class="AvaloniaApplication_Start.Views.HomeView">
 	<UserControl.Styles>
@@ -25,6 +25,7 @@
 				<TextBlock Text="{Binding BarName}"/>
 			</Border>
 		</DataTemplate>
+
 	</UserControl.DataTemplates>
 	<UserControl.Resources>
 		<!--Resources是如何使用的-->
@@ -65,5 +66,28 @@
 		<StackPanel Grid.Row="0" Grid.Column="2"  Orientation="Horizontal"  Background="green" HorizontalAlignment="Stretch">
 			<TextBlock Text="Avalonia中的数据模版选择器的使用" />
 		</StackPanel>
+
+		<StackPanel Grid.Row="1" Grid.Column="0">
+			<!--<ContentControl Content="{Binding SinglePerson}">
+			<ContentControl.ContentTemplate>
+			<dts:SampleIDataTemplate />
+			</ContentControl.ContentTemplate>
+			</ContentControl>-->
+
+			<ContentControl Content="{Binding SinglePerson}">
+				<ContentControl.DataTemplates>
+						<dts:SampleIDataTemplate />
+				</ContentControl.DataTemplates>
+			</ContentControl>
+		</StackPanel>
+
+		<!--
+		<StackPanel Grid.Row="1" Grid.Column="0">
+		<StackPanel.DataTemplates>
+		<dts:SampleIDataTemplate />
+		</StackPanel.DataTemplates>
+		<ContentControl Content="{Binding SinglePerson}">
+		</ContentControl>
+		</StackPanel>-->
 	</Grid>
 </UserControl>
