@@ -44,8 +44,6 @@ public class MainViewModel : ViewModelBase
     {
         _navigationService = navigationService;
         TestLoadCommand = ExecuteTestLoad();
-
-
         //NavigateCommand = new RelayCommand<MenuItem>(Navigate);
 
         MenuItems = new ObservableCollection<MenuItem>

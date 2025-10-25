@@ -14,6 +14,7 @@ namespace AvaloniaApplication_Start.DataTemplates
 {
     public class ShapesTemplateSelector : IDataTemplate
     {
+
         public Control? Build(object? param)
         {
           return null;

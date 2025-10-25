@@ -1,10 +1,25 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="AvaloniaApplication_Start.Views.AboutView">
-	<Grid Background="DarkCyan">
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 xmlns:enum="using:AvaloniaApplication_Start.Common.Enum"
+			 xmlns:vm="using:AvaloniaApplication_Start.ViewModels"
+			 x:Class="AvaloniaApplication_Start.Views.AboutView">
+	<UserControl.DataTemplates>
+		<DataTemplate x:DataType="enum:ShapeType" > 
+			 <TextBlock Text="{Binding}" Foreground="red" />
+		</DataTemplate>
+	</UserControl.DataTemplates>
 
+	<Grid Background="DarkCyan">
+		<TextBlock Text="{Binding MainName}"  HorizontalAlignment="Center" />
+		<ComboBox MaxDropDownHeight="400" ItemsSource="{Binding AvaiableShapeTypes}" HorizontalAlignment="Left" VerticalAlignment="Top">
+			<ComboBox.Styles>
+				<Style Selector="ComboBox">
+					<Setter Property="MinWidth" Value="150" />
+				</Style>
+			</ComboBox.Styles>
+		</ComboBox>
 	</Grid>
 </UserControl>

@@ -37,8 +37,6 @@ namespace AvaloniaApplication_Start.ViewModels
             };
         }
 
-
-
         private async void Submit()
         {
             var message = MessageBoxManager.GetMessageBoxStandard("提示", "确定退出吗", MsBox.Avalonia.Enums.ButtonEnum.YesNo);
