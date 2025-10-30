@@ -44,10 +44,7 @@ public class MainViewModel : ViewModelBase
     {
         _navigationService = navigationService;
         TestLoadCommand = ExecuteTestLoad();
-
-
         //NavigateCommand = new RelayCommand<MenuItem>(Navigate);
-
         MenuItems = new ObservableCollection<MenuItem>
         {
             new MenuItem { Text = "Home", IconData = "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z", Page = "Home"  },
@@ -65,9 +62,10 @@ public class MainViewModel : ViewModelBase
                     _navigationService.NavigateTo<AboutViewModel>();
                 else if (menu == "Default")
                     _navigationService.NavigateTo<DefaultViewModel>();
+                else if (menu == "Template")
+                    _navigationService.NavigateTo<TemplateViewModel>();
                 CurrentViewModel = _navigationService.CurrentViewModel;
             });
-
             return TestLoadCommand2;
         }
     }

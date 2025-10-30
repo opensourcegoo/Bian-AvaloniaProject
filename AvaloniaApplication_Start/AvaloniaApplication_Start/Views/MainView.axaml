@@ -54,10 +54,10 @@
 						<TextBlock Text="About"  Foreground="white" VerticalAlignment="Center" Margin="0,5,0,0"/>
 					</StackPanel>
 				</ListBoxItem>
-				<ListBoxItem Tag="Default">
+				<ListBoxItem Tag="Template">
 					<StackPanel Orientation="Horizontal">
 						<Path Data="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" Fill="white" Margin="10" />
-						<TextBlock Text="Default"  Foreground="white" VerticalAlignment="Center" Margin="0,5,0,0"/>
+						<TextBlock Text="DataTempalte"  Foreground="white" VerticalAlignment="Center" Margin="0,5,0,0"/>
 					</StackPanel>
 				</ListBoxItem>
 				<ListBoxItem Tag="Default">

@@ -1,0 +1,55 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:datatemplate="using:AvaloniaApplication_Start.DataTemplates"
+			 xmlns:enums="using:AvaloniaApplication_Start.Common.Enums"
+			 xmlns:model="using:AvaloniaApplication_Start.Model"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 x:Class="AvaloniaApplication_Start.Views.TemplateView" Background="#FF2D2D4A">
+	<UserControl.DataTemplates>
+		<datatemplate:ShapesTemplateSelector>
+			<DataTemplate x:Key="RedCircle" x:DataType="enums:ShapeType">
+				<Border>
+					<Ellipse Height="60" Width="120" Fill="red" StrokeThickness="2" />
+				</Border>
+			</DataTemplate>
+
+			<DataTemplate x:Key="BlueCircle" x:DataType="enums:ShapeType">
+				<Border>
+					<Ellipse Height="60" Width="120" Fill="blue" StrokeThickness="2" />
+				</Border>
+			</DataTemplate>
+
+			<DataTemplate x:Key="RedRectangle" x:DataType="enums:ShapeType">
+				<Border>
+					<Rectangle Height="60" Width="120" Fill="red" StrokeThickness="2" />
+				</Border>
+			</DataTemplate>
+
+			<DataTemplate x:Key="BuleRectangle" x:DataType="enums:ShapeType">
+				<Border>
+					<Rectangle Height="60" Width="120" Fill="blue" StrokeThickness="2" />
+				</Border>
+			</DataTemplate>
+		</datatemplate:ShapesTemplateSelector>
+	</UserControl.DataTemplates>
+	<Grid ShowGridLines="True">
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<ComboBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding ShapeTypes}" MinWidth="120" SelectedItem="{Binding SelectedShapeType}" />
+		<ComboBox Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center">
+			<ComboBoxItem Content="1"/>
+			<ComboBoxItem Content="2"/>
+			<ComboBoxItem Content="3"/>
+		</ComboBox>
+		
+		<TextBlock Text="{Binding MainName}" Foreground="green"  HorizontalAlignment="Center"  VerticalAlignment="Top" />
+	</Grid>
+</UserControl>

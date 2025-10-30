@@ -13,7 +13,7 @@ namespace AvaloniaApplication_Start.ViewModels
 {
     public class HomeViewModel
     {
-        public string MainName => "这是HomeView";
+        public string MainName => "这是我的HomeView";
 
         public FooViewModel Foo { get; set; } = new FooViewModel { FooName = "测试名称" };
 
@@ -36,8 +36,6 @@ namespace AvaloniaApplication_Start.ViewModels
                 new FooViewModel{ FooName = "000"}
             };
         }
-
-
 
         private async void Submit()
         {

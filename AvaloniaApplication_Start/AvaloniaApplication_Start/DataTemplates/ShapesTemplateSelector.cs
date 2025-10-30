@@ -2,6 +2,8 @@
 using Avalonia.Controls.Templates;
 using Avalonia.Layout;
 using Avalonia.Markup.Xaml.Templates;
+using Avalonia.Metadata;
+using AvaloniaApplication_Start.Common.Enums;
 using AvaloniaApplication_Start.Model;
 using DryIoc;
 using System;
@@ -14,16 +16,18 @@ namespace AvaloniaApplication_Start.DataTemplates
 {
     public class ShapesTemplateSelector : IDataTemplate
     {
+        [Content]
+        public Dictionary<string, IDataTemplate> AvailableDataTemplates { get; } = new Dictionary<string, IDataTemplate>();
+
         public Control? Build(object? param)
         {
-          return null;
+            return null;
         }
-
 
         public bool Match(object? data)
         {
-            return false;
+            var key = data?.ToString();
+            return data is ShapeType &&!string.IsNullOrEmpty(key)&&AvailableDataTemplates.ContainsKey(key);
         }
-           
     }
 }

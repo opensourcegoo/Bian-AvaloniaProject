@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+ï»¿<UserControl xmlns="https://github.com/avaloniaui"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -28,12 +28,12 @@
 
 	</UserControl.DataTemplates>
 	<UserControl.Resources>
-		<!--ResourcesÊÇÈçºÎÊ¹ÓÃµÄ-->
+		<!--Resourcesæ˜¯å¦‚ä½•ä½¿ç”¨çš„-->
 	</UserControl.Resources>
 
 	<Grid Background="DarkSalmon">
 		<Grid.RowDefinitions>
-			<!--RowDefinitionÄ¬ÈÏÓÃµÄÊÇ*¶ø²»ÊÇauto -->
+			<!--RowDefinitioné»˜è®¤ç”¨çš„æ˜¯*è€Œä¸æ˜¯auto -->
 			<RowDefinition />
 			<RowDefinition />
 			<RowDefinition />
@@ -43,18 +43,19 @@
 			<ColumnDefinition />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
-		<!--Á½ÐÐ-->
+		<!--ä¸¤è¡Œ-->
 		<Grid RowDefinitions="* *">
 
 		</Grid>
 		<StackPanel Grid.Row="0" Grid.Column="0">
-			<TextBlock Text="Êý¾ÝÄ£°æµÄ¼òµ¥Ê¹ÓÃ" />
+			<TextBlock Text="æ•°æ®æ¨¡ç‰ˆçš„ç®€å•ä½¿ç”¨" />
 			<Label Content="Foo Datatemplate:" FontFamily="Microsoft YaHei" />
 			<ContentControl Content="{Binding Foo}" />
-			<Label Content="Bar Datatemplate£º" />
+			<Label Content="Bar Datatemplateï¼š" />
 			<ContentControl Content="{Binding Bar}" />
 			<ItemsControl ItemsSource="{Binding FooCollection}" />
 			<TextBlock Text="{Binding  MainName}" />
+			<TextBlock Text="æ¡Œé¢å¼€å‘çš„æ•™ç¨‹" />
 			<Button Content="this is a" Command="{Binding SubmitCommand}" />
 		</StackPanel>
 
@@ -64,7 +65,7 @@
 		</StackPanel>
 
 		<StackPanel Grid.Row="0" Grid.Column="2"  Orientation="Horizontal"  Background="green" HorizontalAlignment="Stretch">
-			<TextBlock Text="AvaloniaÖÐµÄÊý¾ÝÄ£°æÑ¡ÔñÆ÷µÄÊ¹ÓÃ" />
+			<TextBlock Text="Avaloniaä¸­çš„æ•°æ®æ¨¡ç‰ˆé€‰æ‹©å™¨çš„ä½¿ç”¨" />
 		</StackPanel>
 
 		<StackPanel Grid.Row="1" Grid.Column="0">
@@ -76,7 +77,8 @@
 
 			<ContentControl Content="{Binding SinglePerson}">
 				<ContentControl.DataTemplates>
-						<dts:SampleIDataTemplate />
+					<!--DataTemplateæ—¢å¯ä»¥å®šä¹‰åœ¨axamlä¸­ä¹Ÿå¯ä»¥è¢«å®šä¹‰åœ¨å•ç‹¬çš„ç±»æ–‡ä»¶ä¸­ï¼Œä»¥ä¸‹æ˜¯ç±»æ–‡ä»¶buildä¸­ç”Ÿæˆå¯¹åº”çš„æ¨¡ç‰ˆ(å¤šä¸ªæŽ§ä»¶)-->
+					<dts:SampleIDataTemplate />
 				</ContentControl.DataTemplates>
 			</ContentControl>
 		</StackPanel>

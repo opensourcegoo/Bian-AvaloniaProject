@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace AvaloniaApplication_Start.DataTemplates
 {
+    /// <summary>
+    /// 使用
+    /// </summary>
     public class SampleIDataTemplate : IDataTemplate
     {
         public Control? Build(object? param)
@@ -30,6 +33,7 @@ namespace AvaloniaApplication_Start.DataTemplates
         public bool Match(object? data)
         {
             return data is Person;
-        }
+        } 
+
     }
 }
