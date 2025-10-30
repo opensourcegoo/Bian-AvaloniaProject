@@ -50,7 +50,16 @@
 		<StackPanel Grid.Row="0" Grid.Column="0">
 			<TextBlock Text="数据模版的简单使用" />
 			<Label Content="Foo Datatemplate:" FontFamily="Microsoft YaHei" />
-			<ContentControl Content="{Binding Foo}" />
+			<ContentControl Content="{Binding Foo}">
+				<ContentControl.DataTemplates>
+					<DataTemplate DataType="viewmodels:FooViewModel">
+						<StackPanel Orientation="Horizontal">
+							<Ellipse Fill="white" Width="50" Height="50" />
+							<TextBlock Text="{Binding FooName}" Margin="10,0,0,0" VerticalAlignment="Center" />
+						</StackPanel>
+					</DataTemplate>
+				</ContentControl.DataTemplates>
+			</ContentControl>
 			<Label Content="Bar Datatemplate：" />
 			<ContentControl Content="{Binding Bar}" />
 			<ItemsControl ItemsSource="{Binding FooCollection}" />
