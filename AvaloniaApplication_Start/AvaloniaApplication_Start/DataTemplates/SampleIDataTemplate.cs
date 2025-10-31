@@ -16,7 +16,7 @@ namespace AvaloniaApplication_Start.DataTemplates
     public class SampleIDataTemplate : IDataTemplate
     {
         public Control? Build(object? param)
-        {
+        {   
             var person = (Person)param!;
             var panel = new StackPanel()
             {

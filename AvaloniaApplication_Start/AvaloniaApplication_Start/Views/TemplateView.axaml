@@ -34,22 +34,33 @@
 			</DataTemplate>
 		</datatemplate:ShapesTemplateSelector>
 	</UserControl.DataTemplates>
-	<Grid ShowGridLines="True">
-		<Grid.RowDefinitions>
-			<RowDefinition />
-			<RowDefinition />
+	<Grid ShowGridLines="True" RowDefinitions="*,*" ColumnDefinitions="*,*">
+		<!--<Grid.RowDefinitions>
+		<RowDefinition />
+		<RowDefinition />
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition />
-			<ColumnDefinition />
-		</Grid.ColumnDefinitions>
-		<ComboBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding ShapeTypes}" MinWidth="120" SelectedItem="{Binding SelectedShapeType}" />
-		<ComboBox Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center">
-			<ComboBoxItem Content="1"/>
-			<ComboBoxItem Content="2"/>
-			<ComboBoxItem Content="3"/>
-		</ComboBox>
-		
-		<TextBlock Text="{Binding MainName}" Foreground="green"  HorizontalAlignment="Center"  VerticalAlignment="Top" />
+		<ColumnDefinition />
+		<ColumnDefinition />
+		</Grid.ColumnDefinitions>-->
+		<Grid Grid.Row="0" Grid.Column="0">
+			<ComboBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding ShapeTypes}" MinWidth="120" SelectedItem="{Binding SelectedShapeType}" />
+			<ComboBox Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center">
+				<ComboBoxItem Content="1"/>
+				<ComboBoxItem Content="2"/>
+				<ComboBoxItem Content="3"/>
+			</ComboBox>
+			<TextBlock Text="{Binding MainName}" Foreground="green"  HorizontalAlignment="Center"  VerticalAlignment="Top" />
+		</Grid>
+
+		<Grid Grid.Row="0" Grid.Column="1">
+			<TextBlock Text="HierarchicalDataTemplate"  Margin="10" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+				<TextBlock.RenderTransform>
+					<RotateTransform Angle="30" />
+				</TextBlock.RenderTransform>
+			</TextBlock>
+			<TextBlock Text="¾ÍÊÇ"  Foreground="white" Margin="10" HorizontalAlignment="Center"/>
+			<TextBlock Text="TreeDataTemplate" Foreground="white" Margin="10" HorizontalAlignment="Right"/>
+		</Grid>
 	</Grid>
 </UserControl>

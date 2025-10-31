@@ -9,5 +9,8 @@ public partial class TemplateView : UserControl
     public TemplateView()
     {
         InitializeComponent();
+        Control control = this; 
+        
     }
+    StyledProperty<string> _template;
 }

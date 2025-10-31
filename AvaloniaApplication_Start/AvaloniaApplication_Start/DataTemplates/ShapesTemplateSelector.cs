@@ -21,13 +21,18 @@ namespace AvaloniaApplication_Start.DataTemplates
 
         public Control? Build(object? param)
         {
+            if (param != null)
+            {
+                var key = param.ToString();
+                return AvailableDataTemplates[key].Build(param);
+            }
             return null;
         }
 
         public bool Match(object? data)
         {
             var key = data?.ToString();
-            return data is ShapeType &&!string.IsNullOrEmpty(key)&&AvailableDataTemplates.ContainsKey(key);
+            return data is ShapeType && !string.IsNullOrEmpty(key) && AvailableDataTemplates.ContainsKey(key);
         }
     }
 }

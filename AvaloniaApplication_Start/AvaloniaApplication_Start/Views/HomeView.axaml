@@ -26,6 +26,10 @@
 			</Border>
 		</DataTemplate>
 
+		<dts:SampleIDataTemplate x:DataType="model:Person">
+			
+		</dts:SampleIDataTemplate>
+
 	</UserControl.DataTemplates>
 	<UserControl.Resources>
 		<!--Resources是如何使用的-->
@@ -85,10 +89,10 @@
 			</ContentControl>-->
 
 			<ContentControl Content="{Binding SinglePerson}">
-				<ContentControl.DataTemplates>
-					<!--DataTemplate既可以定义在axaml中也可以被定义在单独的类文件中，以下是类文件build中生成对应的模版(多个控件)-->
+				<!--<ContentControl.DataTemplates>
+					--><!--DataTemplate既可以定义在axaml中也可以被定义在单独的类文件中，以下是类文件build中生成对应的模版(多个控件)--><!--
 					<dts:SampleIDataTemplate />
-				</ContentControl.DataTemplates>
+				</ContentControl.DataTemplates>-->
 			</ContentControl>
 		</StackPanel>
 
