@@ -60,12 +60,20 @@
 						<TextBlock Text="DataTempalte"  Foreground="white" VerticalAlignment="Center" Margin="0,5,0,0"/>
 					</StackPanel>
 				</ListBoxItem>
+
+				<ListBoxItem Tag="BuildIn01">
+					<StackPanel Orientation="Horizontal">
+						<Path Data="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" Fill="white" Margin="10" />
+						<TextBlock Text="BuildIn-01"  Foreground="white" VerticalAlignment="Center" Margin="0,5,0,0"/>
+					</StackPanel>
+				</ListBoxItem>
 				<ListBoxItem Tag="Default">
 					<StackPanel Orientation="Horizontal">
 						<Path Data="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" Fill="white" Margin="10" />
 						<TextBlock Text="Default"  Foreground="white" VerticalAlignment="Center" Margin="0,5,0,0"/>
 					</StackPanel>
 				</ListBoxItem>
+
 				<ListBox.Styles>
 					<Style Selector="ListBoxItem">
 						<Setter Property="Background" Value="transparent"/>
@@ -117,19 +125,20 @@
 		</TransitioningContentControl.ContentTemplate>--><!--
 		</trans:TransitioningContentControl>-->
 
-		<trans:TransitioningContentControl Content="{Binding CurrentViewModel}">
-			<trans:TransitioningContentControl.PageTransition>
-				<common:MaterialSlideTransition Duration="0:0:0.80" SlideDistance="100" Direction="Left" />
-				<!--<common:SlideAndFadePageTransition Duration="0:0:0.50" />-->
-			<!--	<CompositePageTransition>
+		<Grid>
+			<trans:TransitioningContentControl Content="{Binding CurrentViewModel}">
+				<trans:TransitioningContentControl.PageTransition>
+					<common:MaterialSlideTransition Duration="0:0:0.80" SlideDistance="100" Direction="Left" />
+					<!--<common:SlideAndFadePageTransition Duration="0:0:0.50" />-->
+					<!--	<CompositePageTransition>
 					--><!-- 先执行滑动效果 --><!--
 					<PageSlide Duration="0:0:0.40" Orientation="Horizontal"/>
 					--><!-- 然后执行淡入淡出 --><!--
 					<CrossFade Duration="0:0:0.60"/>
-				</CompositePageTransition>-->
-			</trans:TransitioningContentControl.PageTransition>
-		</trans:TransitioningContentControl>
-
+					</CompositePageTransition>-->
+				</trans:TransitioningContentControl.PageTransition>
+			</trans:TransitioningContentControl>
+		</Grid>
 	</DockPanel>
 </UserControl>
 

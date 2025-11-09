@@ -33,6 +33,7 @@ public partial class App : Application
         Container.Register<AboutViewModel>(Reuse.Transient);
         Container.Register<DefaultViewModel>(Reuse.Singleton);
         Container.Register<TemplateViewModel>(Reuse.Singleton);
+        Container.Register<BuildIn01ViewModel>(Reuse.Singleton);
 
         // 注册Views（可选，如果需要依赖注入到View中）
         Container.Register<MainWindow>(Reuse.Transient);
@@ -41,6 +42,7 @@ public partial class App : Application
         Container.Register<AboutView>(Reuse.Transient);
         Container.Register<DefaultView>(Reuse.Transient);
         Container.Register<TemplateView>(Reuse.Transient);
+        Container.Register<BuildIn01View>(Reuse.Transient);
 
         //启动入口
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)

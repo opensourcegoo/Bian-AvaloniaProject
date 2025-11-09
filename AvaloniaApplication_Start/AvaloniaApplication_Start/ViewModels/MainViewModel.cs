@@ -64,6 +64,8 @@ public class MainViewModel : ViewModelBase
                     _navigationService.NavigateTo<DefaultViewModel>();
                 else if (menu == "Template")
                     _navigationService.NavigateTo<TemplateViewModel>();
+                else if (menu == "BuildIn01")
+                    _navigationService.NavigateTo<BuildIn01ViewModel>();
                 CurrentViewModel = _navigationService.CurrentViewModel;
             });
             return TestLoadCommand2;

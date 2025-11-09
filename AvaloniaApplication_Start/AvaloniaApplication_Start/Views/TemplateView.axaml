@@ -5,6 +5,7 @@
 			 xmlns:datatemplate="using:AvaloniaApplication_Start.DataTemplates"
 			 xmlns:enums="using:AvaloniaApplication_Start.Common.Enums"
 			 xmlns:model="using:AvaloniaApplication_Start.Model"
+			 xmlns:alias="defintion"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 x:Class="AvaloniaApplication_Start.Views.TemplateView" Background="#FF2D2D4A">
 	<UserControl.DataTemplates>
@@ -59,7 +60,7 @@
 					<RotateTransform Angle="30" />
 				</TextBlock.RenderTransform>
 			</TextBlock>
-			<TextBlock Text="¾ÍÊÇ"  Foreground="white" Margin="10" HorizontalAlignment="Center"/>
+			<TextBlock Text="this"  Foreground="white" Margin="10" HorizontalAlignment="Center"/>
 			<TextBlock Text="TreeDataTemplate" Foreground="white" Margin="10" HorizontalAlignment="Right"/>
 		</Grid>
 	</Grid>
