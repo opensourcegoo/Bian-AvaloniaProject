@@ -9,7 +9,7 @@
 
 	<UserControl.Resources>
 		<!--<DataTemplates x:Key="kl">
-					
+
 		</DataTemplates>-->
 	</UserControl.Resources>
 
@@ -55,17 +55,6 @@
 			</i:Interaction.Behaviors>
 		</NumericUpDown>
 
-		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-			<TextBlock Margin="0 5">Audio</TextBlock>
-			<ToggleButton IsChecked="True">
-				<Panel>
-					<PathIcon Classes="audio-on"
-							  Data="{StaticResource speaker_regular}" />
-					<PathIcon Classes="audio-mute"
-							  Data="{StaticResource speaker_off_regular}" />
-				</Panel>
-			</ToggleButton>
-		</StackPanel>
 		<SplitButton Content="conent" >
 			<SplitButton.Flyout>
 				<MenuFlyout Placement="Bottom">
@@ -96,5 +85,35 @@
 				</Flyout>
 			</SplitButton.Flyout>
 		</SplitButton>
+
+
+		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+			<StackPanel.Styles>
+				<Style Selector="ToggleButton Button.audiobtn">
+					<!--<Setter Property="IsVisible" Value="False" />-->
+					<Setter Property="Background" Value="red" />
+				</Style>
+				<Style Selector="ToggleButton:checked  Button.audiobtn">
+					<!--<Setter Property="IsVisible" Value="True" />-->
+					<Setter Property="Background" Value="blue" />
+				</Style>
+			</StackPanel.Styles>
+			<TextBlock Margin="0 5">Audio</TextBlock>
+			<ToggleButton IsChecked="True">
+				<Panel>
+					<!--
+					内层按钮会阻止外层按钮响应
+					理鼠标点击事件 (MouseLeftButtonDown / Click)，并将事件标记为 Handled
+					推荐使用IsHitTestVisible = false
+					-->
+					<Button Content="213" HorizontalAlignment="Stretch"  Classes="audiobtn" VerticalAlignment="Stretch"  IsHitTestVisible="False"/>
+					<!--PathIcon作为视觉元素则没有鼠标点击处理事件-->
+					<!--<PathIcon Classes="audio-on"
+							  Data="{StaticResource speaker_regular}" />
+					<PathIcon Classes="audio-mute"
+							  Data="{StaticResource speaker_off_regular}" />-->
+				</Panel>
+			</ToggleButton>
+		</StackPanel>
 	</WrapPanel>
 </UserControl>
